@@ -89,6 +89,12 @@ footer {
     font-weight: bold;
 }
 
+.weather-icon{
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
 .weather {
     font-size: 1.8rem;
     margin-bottom: 1rem;

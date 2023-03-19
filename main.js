@@ -11,6 +11,7 @@ const tempImg = document.getElementById('temp-img');
 const temp = document.getElementById('temp');
 const weather = document.getElementById('weather');
 const range = document.getElementById('range');
+const weatherIcon = document.getElementById('weather-icon-img');
 
 // Variable que hace referencia a la tarjeta que muestra toda la información
 const card = document.getElementById('card');
@@ -27,11 +28,18 @@ function updateImage(data) {
     tempImg.src = src
 }
 
+//Function para actualizar el icono del estado del clima
+function updateWeatherIco(data) {
+    const icoID = data.weather[0].icon;
+    weatherIcon.src = `https://openweathermap.org/img/wn/${icoID}@2x.png`;
+}
+
 // Función asíncrona que utiliza la función fetch() para obtener los datos meteorológicos de OpenWeatherMap
 async function search(query){
     try {
         const response = await fetch(`${api.url}?q=${query}&appid=${api.key}&lang=es`);
         const data = await response.json();
+        console.log(data);
         
         // Actualización de los elementos HTML con la información relevante
         city.innerHTML = `${data.name}, ${data.sys.country}`;
@@ -39,7 +47,12 @@ async function search(query){
         temp.innerHTML = `${toCelsius(data.main.temp)} c°`;
         weather.innerHTML = data.weather[0].description;
         range.innerHTML = ` ${toCelsius(data.main.temp_min)} c° / ${toCelsius(data.main.temp_max)} c°`;
+        updateWeatherIco(data);
         updateImage(data);
+        console.log(data.weather[0].icon);
+        console.log(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+        
+        //weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
         // Mostrar la tarjeta de información que se encuentra oculta
         card.style.display = 'block';
     } catch(err){
