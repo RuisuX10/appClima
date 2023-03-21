@@ -5,6 +5,7 @@
 :root {
     --bg-color: #2c2c2c;
     --text-color: #f3f6f5;
+    --sky-color: #77B5FE;
     font-size: 18px;
 }
 
@@ -28,8 +29,13 @@ footer {
     text-align: center;
 }
 
+a {
+    color: var(--sky-color);
+}
+
 .search-form {
     margin: 20px 20px;
+    
 }
 
 .searchBox {
@@ -37,6 +43,7 @@ footer {
     background-color: var(--text-color);
     max-width: 480px;
     margin: 0px auto;
+    border-radius: 10px;
 }
 
 .search {
@@ -59,6 +66,7 @@ footer {
     align-items: center;
     border-radius: 10px;
     display: none;
+    
 }
 
 .city {
@@ -90,7 +98,7 @@ footer {
 }
 
 .weather-icon{
-    background-color: var(--bg-color);
+    background-color: var(--sky-color);
     border-radius: 10px;
     margin-bottom: 1rem;
 }

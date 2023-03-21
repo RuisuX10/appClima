@@ -49,8 +49,6 @@ async function search(query){
         range.innerHTML = ` ${toCelsius(data.main.temp_min)} c° / ${toCelsius(data.main.temp_max)} c°`;
         updateWeatherIco(data);
         updateImage(data);
-        console.log(data.weather[0].icon);
-        console.log(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
         
         //weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
         // Mostrar la tarjeta de información que se encuentra oculta
